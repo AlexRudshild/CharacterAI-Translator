@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CharacterAI Translator
 // @namespace    This script automatically translates chat messages to the user's local language.
-// @version       1.0.0
+// @version       1.0.1
 // @description  try to take over the world!
 // @author       titanRGB
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=greasyfork.org
@@ -31,14 +31,6 @@ setInterval(() => {
 
     try {
         addRevertTranslate();
-    } catch (error) {
-        console.error(error);
-    }
-}, 100);
-
-setInterval(() => {
-    try {
-        addAutoTranslate();
     } catch (error) {
         console.error(error);
     }
