@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CharacterAI Translator
 // @namespace    This script automatically translates chat messages to the user's local language.
-// @version       1.0.3
+// @version       1.0.4
 // @description  try to take over the world!
 // @author       titanRGB
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=greasyfork.org
@@ -84,15 +84,13 @@ function addAutoTranslate() {
 
     for (let i = 0; i < mess_row.length; i++) {
         const message = mess_row[i];
-        if (message.subbed) {
-            continue;
-        }
+        if (message.subToMouseOver) continue;
         subbToHover(message);
     }
 
     const messages = document.querySelectorAll("p[node]");
 
-    for (let i = 0; i < messages.length; i++) {
+    for (let i = messages.length - 1; i >= 0; i--) {
         const msgMarkdownNode = messages[i];
         const parentMsgMarkdown = msgMarkdownNode.parentElement;
 
@@ -109,7 +107,7 @@ function addAutoTranslate() {
 }
 
 async function subbToHover(message){
-    message.subbed = true;
+    message.subToMouseOver = true;
     message.addEventListener('mouseover', (e) => {
         current_message = message;
     });
