@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CharacterAI Translator
 // @namespace    This script automatically translates chat messages to the user's local language.
-// @version       1.0.5
+// @version       1.0.6
 // @description  try to take over the world!
 // @author       titanRGB
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=greasyfork.org
@@ -44,11 +44,11 @@ const sites = {
 				buttonClone.addEventListener("click", async (e) => {
 					const message = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
 					const node = message.querySelector('div[class="MarkdownText_CustomMarkdownText__P3bB6 not-prose w-full text-sm md:text-base"]');
-					const screen = document.querySelector('div[class="relative flex h-full grow flex-col overflow-y-auto transition-all duration-200 sxl:ps-[370px] sxl:me-[300px]"]');
+					const screen = document.querySelector('main').parentElement;
 					const scroll_pos = screen.scrollTop;
 					toggleAutoTranslate(node);
 					screen.scrollTop = scroll_pos;
-					await new Promise((resolve) => setTimeout(resolve, 10));
+					await new Promise((resolve) => setTimeout(resolve, 30));
 					screen.scrollTop = scroll_pos;
 				});
 			}
