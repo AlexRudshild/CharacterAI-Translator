@@ -52,6 +52,8 @@ const sites = {
         add_translate_button: () => {
             const targets = document.querySelectorAll("div[data-index]");
             for (let i = targets.length - 1; i >= 0; i--) {
+                const index = Number(targets[i].getAttribute("data-index") ?? 0);
+                if (index % 2 === 1) continue;
                 const lis = targets[i].querySelectorAll("li");
                 for (let i = 0; i < lis.length; i++) {
                     const target = lis[i];
@@ -78,6 +80,8 @@ const sites = {
         add_to_auto_translate: () => {
             const targets = document.querySelectorAll("div[data-index]");
             for (let i = 0; i < targets.length; i++) {
+                const index = Number(targets[i].getAttribute("data-index") ?? 0);
+                if (index % 2 === 1) continue;
                 const lis = targets[i].querySelectorAll("li");
                 for (let i = 0; i < lis.length; i++) {
                     const target = lis[i];
